@@ -3,7 +3,8 @@ using FootballSimulator.Domain.Configuration;
 namespace FootballSimulator.Domain.Teams;
 
 /// <summary>
-/// TODO Explain logic behind strength calculation
+/// Represents the raw and contextual strength of a team by blending a baseline rating
+/// with weighted strength factors and optional match-specific modifiers.
 /// </summary>
 public class TeamStrength
 {
@@ -40,7 +41,8 @@ public class TeamStrength
     public IReadOnlyCollection<StrengthModifier> Modifiers { get; }
 
     /// <summary>
-    /// Final rating on a 0-100 scale that blends raw base rating with factor-derived strength adjusted according to modifiers
+    /// Final rating on a 0-100 scale that blends the configured base rating with factor-derived strength,
+    /// then applies any percentage adjustments from active modifiers.
     /// </summary>
     public double Rating => Factors.Count == 0
         ? BaseRating

@@ -3,13 +3,12 @@ namespace FootballSimulator.Domain.Teams;
 public class Team : IEquatable<Team>
 {
     /// <summary>
-    /// TODO explain
+    /// Immutable aggregate describing a playable team, its baseline strength,
+    /// and the set of contextual modifiers it understands how to react to.
     /// </summary>
-    /// <param name="name"></param>
-    /// <param name="baseStrength"></param>
-    /// <param name="strengthModifiers"></param>
-    /// <exception cref="ArgumentException"></exception>
-    /// <exception cref="ArgumentNullException"></exception>
+    /// <param name="name">Display name of the club/nation.</param>
+    /// <param name="baseStrength">Base strength profile including factors.</param>
+    /// <param name="strengthModifiers">Optional responses to contextual events.</param>
     public Team(
         string name,
         TeamStrength baseStrength,

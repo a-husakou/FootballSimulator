@@ -6,14 +6,13 @@ var seed = (int)DateTime.UtcNow.Ticks;
 var runner = new RandomGroupSimulationRunner(seed);
 var result = runner.RunOnce();
 
-RenderSummary(result, seed);
+RenderSummary(result);
 
-static void RenderSummary(GroupSimulationResult result, int seed)
+static void RenderSummary(GroupSimulationResult result)
 {
     Console.WriteLine("Football Simulator");
     Console.WriteLine("------------------");
     Console.WriteLine("Group: " + result.Group.Name);
-    Console.WriteLine("Seed : " + seed);
 
     Console.WriteLine();
     Console.WriteLine("Standings");
@@ -52,5 +51,5 @@ static string DescribeMatch(MatchResult match)
     var awayGoals = match.Score.GetGoalsFor(match.Fixture.AwayTeam);
     var scoreLine = $"{homeGoals} - {awayGoals}";
 
-    return $"{match.Fixture.HomeTeam.Name} vs {match.Fixture.AwayTeam.Name} => {scoreLine}";
+    return $"Round {match.Fixture.Round}: {match.Fixture.HomeTeam.Name} vs {match.Fixture.AwayTeam.Name} => {scoreLine}";
 }

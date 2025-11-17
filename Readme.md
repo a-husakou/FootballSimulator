@@ -1,16 +1,36 @@
-* Domain representation
-Team strength is represented by a base line plus a set of StrengthFactors (Attach, Defense, etc). In order to randomize simulation, there is a StrengthModifier concept, which represents a match context which can affect team strength either positively or negatively.
-StengthModifier is factored in randomly during simulation.
-The choice was to keep strength factor and strength modifier names hardcoded into enums, in the real app, those may be configurable via admin UI.
+## Football Simulator
 
-Mention that calculation rules could be made dynamic, and be used as a strategy. Such as instead of having a hardcoded logic of 
-averaging factors when calculating a team rating, the calculation can be supplied via interface to choose from. That applies to all of the calculation.
-To avoid extra complexity in the test assignemnt, the simple hardcoded calculation was chosen
+This prototype demonstrates how a small tournament engine can be modelled in C#.
 
+### Domain Model
 
-** Match simulation
-Match simulation is kept to a minimum, as the assignment does not emphasize its importance 
+- **Teams & Strength** – Each `Team` owns a `TeamStrength` made up of a base rating (0‑100) and several `StrengthFactor`s (attack, defense, stamina, etc.). Match-day events feed in as `StrengthModifier`s that apply percentage adjustments to one or more factors before a match is simulated.
+- **Hard-coded factors/modifiers** – For this exercise, factor and modifier names live in enums to keep things explicit. In a fuller product they could be data‑driven via admin screens.
+- **Rating calculation strategy** – Ratings combine the base score and the (potentially adjusted) factor average using configurable weights from `DomainConstants`. These rules could be swapped for alternative strategies by introducing interfaces, but were kept simple here to reduce assignment complexity.
 
-Some parts of the domain model are configurable via strategy pattern, FootballSimulator.Domain.Algorithms keeps implementation of domain abstractions.
+#### Match & Group Simulation
 
-IOC is not used for this app - poor man constructor injection
+- **Match engine** – `KnuthAlgorithmMatchSimulation` uses the provided ratings plus configurable `MatchSimulationSettings` to generate Poisson-based scorelines.
+- **Events per match** – `DefaultGroupSimulator` asks an `IMatchModifierEventProvider` for every fixture, so each match can experience different contextual events before ratings are computed.
+- **Group standings** – A round-robin scheduler produces fixtures, results feed into `StandingAccumulator`, and the final table breaks ties by points, goal difference, goals scored, goals against, and head-to-head mini tables.
+- **Pluggable algorithms** – Both the match simulator (`IMatchSimulator`) and the group scheduler (`IGroupScheduler`) are abstractions. The baseline implementations live in `FootballSimulator.Domain.Algorithms`, but can be swapped out for richer logic without touching the domain model.
+
+### Extensibility Notes
+
+- Because the emphasis is the domain model, the orchestration layer stays intentionally thin and no IoC container is introduced; dependencies are wired through constructors (“poor man’s DI”) to keep the flow explicit.
+
+### Running the Sample
+
+Two entry points exist:
+
+1. **Console Runner** – `dotnet run --project FootballSimulator.ConsoleRunner` seeds a pseudo-random simulation using `DateTime.UtcNow.Ticks` and prints the standings/match list in a compact table.
+2. **RandomGroupSimulationRunner** – Used by the console app and tests; it builds four sample teams, injects the algorithms, and runs a single group once.
+
+### Tests
+
+`dotnet test FootballSimulator.sln`
+
+### Additional Ideas
+
+- Persistence for teams/modifiers (e.g., JSON, database, or API).
+- Tournament orchestrator that carries state across rounds and generates events based on previous scores (injuries, morale, fatigue, etc.).

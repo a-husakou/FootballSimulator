@@ -11,7 +11,8 @@ public enum StrengthModifierName
 }
 
 /// <summary>
-/// TODO explain
+/// Describes how a specific contextual event (weather, travel, morale, etc.)
+/// adjusts one or more strength factors by a percentage during rating calculations.
 /// </summary>
 public class StrengthModifier
 {

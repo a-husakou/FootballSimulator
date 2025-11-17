@@ -23,7 +23,6 @@ public static class DomainConstants
     public static class Matches
     {
         public const int MinimumRoundNumber = 1;
-
         public const int PointsForWin = 3;
         public const int PointsForDraw = 1;
         public const int PointsForLoss = 0;
