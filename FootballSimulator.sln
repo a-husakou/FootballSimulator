@@ -1,0 +1,54 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34330.188
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FootballSimulator.Application", "FootballSimulator.Application\FootballSimulator.Application.csproj", "{CAA20B58-C14F-4EB8-AFED-07D302BE8EA6}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FootballSimulator.Domain", "FootballSimulator.Domain\FootballSimulator.Domain.csproj", "{0F7E0BD7-3BDC-4D5F-B765-6A36ACB32FFE}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SolutionItems", "SolutionItems", "{DCA830AB-72DC-493D-AFF9-988D170528CC}"
+	ProjectSection(SolutionItems) = preProject
+		Readme.md = Readme.md
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FootballSimulator.Tests", "FootballSimulator.Tests\FootballSimulator.Tests.csproj", "{FB996B60-7743-4DE4-9993-46DC4914DDEB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FootballSimulator.Domain.Algorithms", "FootballSimulator.Domain.Algorithms\FootballSimulator.Domain.Algorithms.csproj", "{EE6308F2-AFEA-417E-B93B-F1DA21C20AD1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FootballSimulator.ConsoleRunner", "FootballSimulator.ConsoleRunner\FootballSimulator.ConsoleRunner.csproj", "{5286E771-2009-4079-BDA4-9CD81A188AB2}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CAA20B58-C14F-4EB8-AFED-07D302BE8EA6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CAA20B58-C14F-4EB8-AFED-07D302BE8EA6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CAA20B58-C14F-4EB8-AFED-07D302BE8EA6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CAA20B58-C14F-4EB8-AFED-07D302BE8EA6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0F7E0BD7-3BDC-4D5F-B765-6A36ACB32FFE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0F7E0BD7-3BDC-4D5F-B765-6A36ACB32FFE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0F7E0BD7-3BDC-4D5F-B765-6A36ACB32FFE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0F7E0BD7-3BDC-4D5F-B765-6A36ACB32FFE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FB996B60-7743-4DE4-9993-46DC4914DDEB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FB996B60-7743-4DE4-9993-46DC4914DDEB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FB996B60-7743-4DE4-9993-46DC4914DDEB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FB996B60-7743-4DE4-9993-46DC4914DDEB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EE6308F2-AFEA-417E-B93B-F1DA21C20AD1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EE6308F2-AFEA-417E-B93B-F1DA21C20AD1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EE6308F2-AFEA-417E-B93B-F1DA21C20AD1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EE6308F2-AFEA-417E-B93B-F1DA21C20AD1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5286E771-2009-4079-BDA4-9CD81A188AB2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5286E771-2009-4079-BDA4-9CD81A188AB2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5286E771-2009-4079-BDA4-9CD81A188AB2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5286E771-2009-4079-BDA4-9CD81A188AB2}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {9B00DAB6-E337-4438-BF5C-7E4824591330}
+	EndGlobalSection
+EndGlobal
